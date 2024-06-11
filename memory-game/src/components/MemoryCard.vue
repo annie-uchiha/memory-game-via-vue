@@ -2,7 +2,7 @@
   <div class="card" @click="flipCard" :class="{ flipped: isFlipped }">
     <div class="card-front"></div>
     <div class="card-back">
-      <img :src="image" alt="Card Image" />
+      <img :src="`./cardGifs/${image}`" alt="Card Image" />
     </div>
   </div>
 </template>
