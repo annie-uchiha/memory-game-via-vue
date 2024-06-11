@@ -74,7 +74,7 @@ export default {
       this.generateCards();
     },
     generateCards() {
-      const numCards = this.level * 4;
+      const numCards = this.level * 4 + 6; // Adjust the number of additional cards per level
       const selectedImages = _.shuffle(this.cardImages).slice(0, numCards / 2);
       const pairedImages = _.shuffle([...selectedImages, ...selectedImages]);
       this.cards = pairedImages.map((image, index) => ({
