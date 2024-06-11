@@ -33,10 +33,10 @@ export default {
       currentGif: "",
       gifs: [
         "../gifs/dragon.gif",
-        "path/to/gif2.gif",
-        "path/to/gif3.gif",
-        "path/to/gif4.gif",
-        "path/to/gif5.gif",
+        "../gifs/niffler.gif",
+        "../gifs/fireworks.webp",
+        "../gifs/witch.gif",
+        "../gifs/snitch.gif",
       ],
       cardImages: [
         "../cardGifs/1.gif",
