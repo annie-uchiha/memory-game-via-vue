@@ -77,7 +77,7 @@ export default {
         } else {
           setTimeout(() => {
             flippedCards.forEach((card) => (card.flipped = false));
-          }, 1000);
+          }, 3000);
         }
       }
 

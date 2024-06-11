@@ -46,7 +46,7 @@
   }
   
   .card-front {
-    background: #eee;
+    background: #072e99;
   }
   
   .card-back {
