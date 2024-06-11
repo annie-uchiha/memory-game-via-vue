@@ -62,6 +62,9 @@ export default {
         "./cardGifs/21.gif",
         "./cardGifs/22.gif",
         "./cardGifs/23.gif",
+        "./cardGifs/24.gif",
+        "./cardGifs/25.gif",
+        "./cardGifs/26.gif",
       ],
     };
   },
