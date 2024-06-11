@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="grid">
-      <Card
+      <MemoryCard
         v-for="card in cards"
         :key="card.id"
         :image="card.image"
@@ -19,12 +19,12 @@
 </template>
 
 <script>
-import Card from "./Card.vue";
+import MemoryCard from "./MemoryCard.vue";
 import LevelComplete from "./LevelComplete.vue";
 import _ from "lodash";
 
 export default {
-  components: { Card, LevelComplete },
+  components: { MemoryCard, LevelComplete },
   data() {
     return {
       cards: [],
@@ -85,12 +85,34 @@ export default {
     },
     handleCardFlip(id) {
       const flippedCards = this.cards.filter((card) => card.flipped);
-      if (flippedCards.length === 2) {
-        if (flippedCards[0].image === flippedCards[1].image) {
-        } else {
-          setTimeout(() => {
-            flippedCards.forEach((card) => (card.flipped = false));
-          }, 3000);
+      if (flippedCards.length < 2) {
+        const cardIndex = this.cards.findIndex((card) => card.id === id);
+        this.$set(this.cards, cardIndex, {
+          ...this.cards[cardIndex],
+          flipped: true,
+        });
+
+        if (flippedCards.length === 1) {
+          const firstCard = flippedCards[0];
+          const secondCard = this.cards[cardIndex];
+
+          if (firstCard.image === secondCard.image) {
+            // Cards match
+          } else {
+            // Cards do not match, flip back after delay
+            setTimeout(() => {
+              this.$set(
+                this.cards,
+                this.cards.findIndex((card) => card.id === firstCard.id),
+                { ...firstCard, flipped: false }
+              );
+              this.$set(
+                this.cards,
+                this.cards.findIndex((card) => card.id === secondCard.id),
+                { ...secondCard, flipped: false }
+              );
+            }, 3000);
+          }
         }
       }
 

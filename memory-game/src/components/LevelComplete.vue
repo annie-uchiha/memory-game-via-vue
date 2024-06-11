@@ -8,7 +8,10 @@
 <script>
 export default {
   props: {
-    gif: String,
+    gif: {
+      type: String,
+      required: true,
+    },
   },
 };
 </script>
@@ -36,5 +39,14 @@ export default {
   margin-top: 20px;
   padding: 10px 20px;
   font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.overlay button:hover {
+  background-color: #0056b3;
 }
 </style>
