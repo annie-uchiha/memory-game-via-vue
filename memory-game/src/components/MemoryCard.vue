@@ -11,36 +11,19 @@
 export default {
   name: "MemoryCard",
   props: {
-    image: {
-      type: String,
-      required: true,
-    },
-    id: {
-      type: Number,
-      required: true,
-    },
-    flipped: {
-      type: Boolean,
-      required: true,
-    },
+    image: String,
+    id: Number,
+    flipped: Boolean,
   },
   data() {
     return {
       isFlipped: this.flipped,
     };
   },
-  watch: {
-    flipped(newVal) {
-      this.isFlipped = newVal;
-    },
-  },
   methods: {
     flipCard() {
-      if (!this.isFlipped) {
-        // Prevent flipping back by the card itself
-        this.isFlipped = !this.isFlipped;
-        this.$emit("card-flipped", this.id);
-      }
+      this.isFlipped = !this.isFlipped;
+      this.$emit("card-flipped", this.id);
     },
   },
 };
@@ -50,9 +33,7 @@ export default {
 .card {
   width: 100px;
   height: 150px;
-  position: relative;
   perspective: 1000px;
-  cursor: pointer;
 }
 
 .card-front,
@@ -78,5 +59,10 @@ export default {
 
 .card.flipped .card-back {
   transform: rotateY(0deg);
+}
+
+.card-back img {
+  max-width: 100%;
+  max-height: 100%;
 }
 </style>
