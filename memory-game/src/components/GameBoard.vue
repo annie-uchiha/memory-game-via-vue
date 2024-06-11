@@ -74,7 +74,7 @@ export default {
       this.generateCards();
     },
     generateCards() {
-      const numCards = this.level * 4 + 6; // Adjust the number of additional cards per level
+      const numCards = this.level * 4;
       const selectedImages = _.shuffle(this.cardImages).slice(0, numCards / 2);
       const pairedImages = _.shuffle([...selectedImages, ...selectedImages]);
       this.cards = pairedImages.map((image, index) => ({
@@ -87,10 +87,7 @@ export default {
       const flippedCards = this.cards.filter((card) => card.flipped);
       if (flippedCards.length < 2) {
         const cardIndex = this.cards.findIndex((card) => card.id === id);
-        this.$set(this.cards, cardIndex, {
-          ...this.cards[cardIndex],
-          flipped: true,
-        });
+        this.cards[cardIndex] = { ...this.cards[cardIndex], flipped: true };
 
         if (flippedCards.length === 1) {
           const firstCard = flippedCards[0];
@@ -101,16 +98,13 @@ export default {
           } else {
             // Cards do not match, flip back after delay
             setTimeout(() => {
-              this.$set(
-                this.cards,
-                this.cards.findIndex((card) => card.id === firstCard.id),
-                { ...firstCard, flipped: false }
-              );
-              this.$set(
-                this.cards,
-                this.cards.findIndex((card) => card.id === secondCard.id),
-                { ...secondCard, flipped: false }
-              );
+              this.cards[
+                this.cards.findIndex((card) => card.id === firstCard.id)
+              ] = {
+                ...firstCard,
+                flipped: false,
+              };
+              this.cards[cardIndex] = { ...secondCard, flipped: false };
             }, 3000);
           }
         }
