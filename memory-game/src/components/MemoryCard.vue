@@ -37,8 +37,8 @@ export default {
 
 <style scoped>
 .card {
-  width: 320px;
-  height: 250px;
+  width: 220px;
+  height: 220px;
   perspective: 1000px;
   cursor: pointer;
   position: relative;

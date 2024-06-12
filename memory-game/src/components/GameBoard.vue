@@ -131,12 +131,29 @@ export default {
   display: grid;
   gap: 20px;
 }
+
 .grid-level-1 {
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(2, 1fr);
 }
-.grid:not(.grid-level-1) {
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  gap: 40px;
+
+.grid-level-2 {
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.grid-level-3 {
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.grid-level-4 {
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.grid-level-5 {
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(3, 1fr);
 }
 </style>
