@@ -66,6 +66,7 @@ export default {
         "./cardGifs/25.gif",
         "./cardGifs/26.gif",
       ],
+      flippedCards: [],
     };
   },
   created() {
@@ -87,30 +88,31 @@ export default {
       }));
     },
     handleCardFlip(id) {
-      const flippedCards = this.cards.filter((card) => card.flipped);
-      if (flippedCards.length < 2) {
-        const cardIndex = this.cards.findIndex((card) => card.id === id);
+      const cardIndex = this.cards.findIndex((card) => card.id === id);
+      if (this.flippedCards.length < 2 && !this.cards[cardIndex].flipped) {
         this.cards[cardIndex].flipped = true;
+        this.flippedCards.push(this.cards[cardIndex]);
 
-        if (flippedCards.length === 1) {
-          const firstCard = flippedCards[0];
-          const secondCard = this.cards[cardIndex];
-
-          if (firstCard.image === secondCard.image) {
-            // Cards match
-          } else {
-            // Cards do not match, flip back after delay
-            setTimeout(() => {
-              firstCard.flipped = false;
-              secondCard.flipped = false;
-            }, 1000);
-          }
+        if (this.flippedCards.length === 2) {
+          this.checkForMatch();
         }
       }
 
       if (this.cards.every((card) => card.flipped)) {
         this.levelComplete = true;
         this.currentGif = this.gifs[this.level - 1];
+      }
+    },
+    checkForMatch() {
+      const [firstCard, secondCard] = this.flippedCards;
+      if (firstCard.image === secondCard.image) {
+        this.flippedCards = [];
+      } else {
+        setTimeout(() => {
+          firstCard.flipped = false;
+          secondCard.flipped = false;
+          this.flippedCards = [];
+        }, 1000);
       }
     },
     nextLevel() {
@@ -128,6 +130,6 @@ export default {
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  gap: 10px;
+  gap: 40px;
 }
 </style>

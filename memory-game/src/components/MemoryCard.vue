@@ -2,7 +2,7 @@
   <div class="card" @click="flipCard" :class="{ flipped: isFlipped }">
     <div class="card-front"></div>
     <div class="card-back">
-      <img :src="`./cardGifs/${image}`" alt="Card Image" />
+      <img :src="image" alt="Card Image" />
     </div>
   </div>
 </template>
@@ -20,10 +20,16 @@ export default {
       isFlipped: this.flipped,
     };
   },
+  watch: {
+    flipped(newVal) {
+      this.isFlipped = newVal;
+    },
+  },
   methods: {
     flipCard() {
-      this.isFlipped = !this.isFlipped;
-      this.$emit("card-flipped", this.id);
+      if (!this.isFlipped) {
+        this.$emit("card-flipped", this.id);
+      }
     },
   },
 };
@@ -31,9 +37,11 @@ export default {
 
 <style scoped>
 .card {
-  width: 100px;
-  height: 150px;
+  width: 320px;
+  height: 250px;
   perspective: 1000px;
+  cursor: pointer;
+  position: relative;
 }
 
 .card-front,
@@ -46,7 +54,14 @@ export default {
 }
 
 .card-front {
-  background: #072e99;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(rgba(190, 75, 9, 0.801)),
+    to(#ff9f06)
+  );
+  transform: rotateY(0deg);
 }
 
 .card-back {
