@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="grid">
+    <div :class="['grid', `grid-level-${level}`]">
       <MemoryCard
         v-for="card in cards"
         :key="card.id"
@@ -32,39 +32,39 @@ export default {
       levelComplete: false,
       currentGif: "",
       gifs: [
-        "./gifs/dragon.gif",
-        "./gifs/niffler.gif",
-        "./gifs/fireworks.webp",
-        "./gifs/witch.gif",
-        "./gifs/snitch.gif",
+        "dragon.gif",
+        "niffler.gif",
+        "fireworks.webp",
+        "witch.gif",
+        "snitch.gif",
       ],
       cardImages: [
-        "./cardGifs/1.gif",
-        "./cardGifs/2.gif",
-        "./cardGifs/3.gif",
-        "./cardGifs/4.gif",
-        "./cardGifs/5.gif",
-        "./cardGifs/6.gif",
-        "./cardGifs/7.gif",
-        "./cardGifs/8.gif",
-        "./cardGifs/9.gif",
-        "./cardGifs/10.gif",
-        "./cardGifs/11.gif",
-        "./cardGifs/12.gif",
-        "./cardGifs/13.gif",
-        "./cardGifs/14.gif",
-        "./cardGifs/15.gif",
-        "./cardGifs/16.gif",
-        "./cardGifs/17.gif",
-        "./cardGifs/18.gif",
-        "./cardGifs/19.gif",
-        "./cardGifs/20.gif",
-        "./cardGifs/21.gif",
-        "./cardGifs/22.gif",
-        "./cardGifs/23.gif",
-        "./cardGifs/24.gif",
-        "./cardGifs/25.gif",
-        "./cardGifs/26.gif",
+        "1.gif",
+        "2.gif",
+        "3.gif",
+        "4.gif",
+        "5.gif",
+        "6.gif",
+        "7.gif",
+        "8.gif",
+        "9.gif",
+        "10.gif",
+        "11.gif",
+        "12.gif",
+        "13.gif",
+        "14.gif",
+        "15.gif",
+        "16.gif",
+        "17.gif",
+        "18.gif",
+        "19.gif",
+        "20.gif",
+        "21.gif",
+        "22.gif",
+        "23.gif",
+        "24.gif",
+        "25.gif",
+        "26.gif",
       ],
       flippedCards: [],
     };
@@ -100,7 +100,7 @@ export default {
 
       if (this.cards.every((card) => card.flipped)) {
         this.levelComplete = true;
-        this.currentGif = this.gifs[this.level - 1];
+        this.currentGif = require(`@/gifs/${this.gifs[this.level - 1]}`);
       }
     },
     checkForMatch() {
@@ -129,6 +129,13 @@ export default {
 <style scoped>
 .grid {
   display: grid;
+  gap: 20px;
+}
+.grid-level-1 {
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+.grid:not(.grid-level-1) {
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   gap: 40px;
 }

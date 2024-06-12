@@ -1,8 +1,8 @@
 <template>
-  <div class="card" @click="flipCard" :class="{ flipped: isFlipped }">
+  <div class="card" @click="handleClick" :class="{ flipped: isFlipped }">
     <div class="card-front"></div>
     <div class="card-back">
-      <img :src="image" alt="Card Image" />
+      <img :src="require(`@/cardGifs/${image}`)" alt="Card Image" />
     </div>
   </div>
 </template>
@@ -26,7 +26,7 @@ export default {
     },
   },
   methods: {
-    flipCard() {
+    handleClick() {
       if (!this.isFlipped) {
         this.$emit("card-flipped", this.id);
       }
@@ -54,13 +54,7 @@ export default {
 }
 
 .card-front {
-  background: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    from(rgba(190, 75, 9, 0.801)),
-    to(#ff9f06)
-  );
+  background: linear-gradient(to right, rgba(190, 75, 9, 0.801), #ff9f06);
   transform: rotateY(0deg);
 }
 
