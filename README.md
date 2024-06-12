@@ -1,4 +1,7 @@
 # memory-game-via-vue
+
 Building a simple memory game via Vue.js
 
-*work in progress*
+The game consists of five levels and each level adds additional cards
+
+_work in progress_
