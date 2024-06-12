@@ -158,10 +158,36 @@ export default {
   grid-template-rows: repeat(4, 1fr);
 }
 
-media (max-width: 768px) {
+@media (max-width: 768px) {
   .grid {
     gap: 10px;
   }
+
+  .grid-level-1 {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .grid-level-2 {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  .grid-level-3 {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+
+  .grid-level-4 {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+  }
+
+  .grid-level-5 {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+
   .card {
     width: 160px;
     height: 120px;
@@ -172,6 +198,32 @@ media (max-width: 768px) {
   .grid {
     gap: 5px;
   }
+
+  .grid-level-1 {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .grid-level-2 {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  .grid-level-3 {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+
+  .grid-level-4 {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+  }
+
+  .grid-level-5 {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+
   .card {
     width: 110px;
     height: 90px;
