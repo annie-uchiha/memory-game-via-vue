@@ -19,7 +19,7 @@ export default {
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
-  color: #2c3e50;
+  color: rgba(190, 75, 9, 0.801);
   margin-top: 60px;
 }
 </style>
