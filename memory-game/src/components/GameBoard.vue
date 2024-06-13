@@ -131,6 +131,7 @@ export default {
   display: grid;
   grid-row-gap: 20px;
   grid-column-gap: 10px;
+ margin: 0 10%;
 }
 
 .grid-level-1 {
