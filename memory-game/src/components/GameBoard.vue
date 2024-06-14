@@ -164,6 +164,7 @@ export default {
 @media (max-width: 768px) {
   .grid {
     gap: 10px;
+    margin: 0 10% 0 10%;
   }
 
   .grid-level-1 {
@@ -200,6 +201,7 @@ export default {
 @media (max-width: 480px) {
   .grid {
     gap: 5px;
+    margin: 0 10% 0 10%;
   }
 
   .grid-level-1 {
