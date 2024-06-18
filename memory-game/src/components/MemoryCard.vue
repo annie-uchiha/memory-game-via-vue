@@ -42,6 +42,7 @@ export default {
   perspective: 1000px;
   cursor: pointer;
   position: relative;
+  margin: 5%;
 }
 
 .card-front,
@@ -54,7 +55,7 @@ export default {
 }
 
 .card-front {
-  background: linear-gradient(to right, rgba(190, 75, 9, 0.801), #ff9f06);
+  background: linear-gradient(to right, rgba(190, 75, 9, 0.925), #ff9f06);
   transform: rotateY(0deg);
 }
 

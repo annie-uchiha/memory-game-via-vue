@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>Memory Game</h1>
-    <h2>Vue.js practice</h2>
+    <h1 className="title">Memory Game</h1>
+    <h2 className="title">Vue.js practice</h2>
     <div :class="['grid', `grid-level-${level}`]">
       <MemoryCard
         v-for="card in cards"
@@ -129,6 +129,10 @@ export default {
 </script>
 
 <style scoped>
+.title {
+  margin-top: 20px;
+}
+
 .grid {
   display: grid;
   grid-row-gap: 20px;
